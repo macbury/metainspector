@@ -108,7 +108,11 @@ module MetaInspector
       rescue Exception => e
         add_fatal_error "Parsing exception: #{e.message}"
     end
-
+    
+    def document=(html)
+      @document = html
+    end
+    
     # Returns the original, unparsed document
     def document
       @document ||= if html_content_only && content_type != "text/html"
